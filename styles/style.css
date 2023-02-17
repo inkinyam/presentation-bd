@@ -522,7 +522,7 @@ h3 {
 
 .pagination__item:hover{
   stroke: var(--white-hovered);
-  cursor: url(../images/Cursor-Hand.svg),pointer;
+  cursor: url(../images/Cursor-Hand.svg), pointer;
   background-color: rgba(240, 240, 244, 0.8);
 }
 .pagination__item:hover .pagination__link {
@@ -534,6 +534,10 @@ h3 {
 .pagination__item:hover circle {
   stroke: var(--blue-default);
   fill: var(--blue-default);
+}
+
+.pagination__link:hover {
+  cursor: url(../images/Cursor-Hand.svg), pointer;
 }
 
 /*активные элементы*/
