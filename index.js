@@ -14,11 +14,6 @@ window.onscroll = () =>
     : (upButton.classList.remove('up_showed'));
 
 
-
-
-
-const mediaQuerySmallSize = window.matchMedia('(min-width: 600px)'); // проверяем мобилка или десктоп
-
 Fancybox.defaults.ScrollLock = false;
 Fancybox.bind('[data-fancybox]', {
   Toolbar: {
@@ -69,8 +64,5 @@ Fancybox.bind('[data-fancybox]', {
   }
 });
 
-Fancybox.Plugins.Thumbs.defaults.autoStart = false;
+Fancybox.Plugins.Thumbs.defaults.autoStart = true;
 
-if (!mediaQuerySmallSize.matches) {
-  Fancybox.Plugins.Thumbs.defaults.autoStart = true;
-}
