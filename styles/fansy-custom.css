@@ -1,0 +1,205 @@
+/*настройки карусельки*/
+
+.carousel {
+  color: var(--black-onclick);
+  --carousel-button-bg: transparent;
+  --carousel-button-shadow: none;
+  --carousel-button-svg-width: 28px;
+  --carousel-button-svg-height: 28px;
+  --carousel-button-svg-stroke-width: 2.5;
+  width: 100%;
+}
+
+
+.fancybox__container {
+  --fancybox-color: #ffffff;
+  --fancybox-bg: rgba(19, 18, 18, 0.9);
+  --fancybox-content-color: #f3f3f3;
+  --fancybox-content-bg: #fff;
+  --fancybox-thumbs-width: 24px;
+  --fancybox-thumbs-ratio: 1;
+  --carousel-button-svg-stroke-width: 1.4;
+    --carousel-button-svg-stroke: var(--white-default);
+  --carousel-button-svg-filter: none;
+}
+
+
+.fancybox__nav {
+  --carousel-button-bg: transparent;
+  --carousel-button-svg-width: 28px;
+  --carousel-button-svg-height: 28px;
+  --carousel-button-svg-stroke-width: 0;
+}
+
+.fancybox__caption {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--white-default);
+  text-align: left;
+}
+
+
+.carousel__button {
+  stroke: var(--white-default);
+  transition: all 0.4s ease;
+  color:#fff
+}
+
+.carousel__slide {
+  width: 100%;
+  padding: 0;
+}
+
+/*положение тулбара (крестик, кубики)*/
+.fancybox__toolbar {
+  padding: 0;
+}
+
+.fancybox__toolbar__items {
+  margin-right: 2%;
+  margin-top: 2%;
+}
+.fancybox__toolbar .carousel__button {
+  width: 28px;
+  height: 28px;
+}
+ 
+/*кастомизируем кнопки*/
+/*кнопка ->*/
+.fancybox__nav .carousel__button.is-next {
+  right: 2%;
+}
+
+.fancybox__nav .carousel__button.is-next:hover {
+  cursor: url(../images/Cursor-Hand.svg), pointer;
+  color: var(--only-green);
+}
+
+.fancybox__nav .carousel__button.is-next:active {
+  color: var(--only-green-onlcik);
+}
+
+
+/*кнопка <-*/
+.fancybox__nav .carousel__button.is-prev {
+  left: 2%;
+}
+
+.fancybox__nav .carousel__button.is-prev:hover {
+  cursor: url(../images/Cursor-Hand.svg), pointer;
+  color: var(--only-green);
+}
+
+.fancybox__nav .carousel__button.is-prev:active {
+  color: var(--only-green-onlcik);
+}
+
+.carousel__dots {
+  color: var(--blue-default);
+}
+
+/*кнопка X*/
+ .carousel__button.fancybox__button--close svg{
+  fill: currentColor;
+  stroke-width: var(--carousel-button-svg-stroke-width, 0.2);
+}
+
+.carousel__button.fancybox__button--close:hover {
+  cursor: url(../images/Cursor-Hand.svg), pointer;
+  color: var(--only-green);
+}
+
+.carousel__button.fancybox__button--close:active {
+  color: var(--only-green-onlcik);
+} 
+
+/*кнопка открыть галерею для предпросмотра (кубики)*/
+.carousel__button.fancybox__button--thumbs {
+  transition: all 0.3s ease;
+  margin: 0  8px 0 0;
+}
+
+.carousel__button.fancybox__button--thumbs svg{
+  height: 100%;
+  width: 100%;
+}
+
+.carousel__button.fancybox__button--thumbs rect{
+  fill: currentColor;
+}
+
+.carousel__button.fancybox__button--thumbs:hover {
+  cursor: url(../images/Cursor-Hand.svg), pointer;
+  color: var(--only-green);
+}
+
+.carousel__button.fancybox__button--thumbs:active {
+  color: var(--only-green-onlcik);
+}
+
+/*расположение и кастомизация зоны предпросмотра*/
+.fancybox__thumbs .carousel__slide {
+  margin-bottom: 8px;
+}
+
+
+.fancybox__container {
+  --fancybox-thumbs-border-radius:0;
+  --fancybox-thumbs-ratio: 1;
+  --fancybox-thumbs-width: 60px;
+  --fancybox-thumbs-height: 60px;
+  --fancybox-accent-color: var(--only-green);
+}
+
+.fancybox__thumbs .carousel__slide .fancybox__thumb::after {
+  border-width: 3px;
+}
+
+@media screen and (max-width: 800px) {
+  .carousel__slide {
+    padding: 0 5px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .fancybox__container .carousel__button.is-prev,
+  .fancybox__container .carousel__button.is-next {
+    display: none;
+  }
+}
+
+
+/*СТИЛИЗАЦИЯ ПОД РАЗНЫЕ СТРАНИЦЫ*/
+.projectsCrsl .carousel__slide {
+  align-items: flex-start;
+}
+
+.lead .carousel {
+  --carousel-button-svg-stroke-width: 1;
+}
+
+.lead .carousel__slide  {
+  width: 100%;
+}
+
+.lead .carousel__button.carousel__button.is-prev:hover circle{
+  fill: var(--white-hovered);
+  stroke: var(--white-hovered);
+}
+
+.lead .carousel__button.carousel__button.is-prev:active circle{
+  fill: var(--white-onclick);
+  stroke: var(--white-onclick);
+}
+
+.lead .carousel__button.carousel__button.is-next:active circle{
+  fill: var(--white-onclick);
+  stroke: var(--white-onclick);
+}
+
+.institut .carousel {
+  --carousel-button-svg-stroke-width: 1;
+}
