@@ -473,3 +473,132 @@ h3 {
     height: 64px;
   }
 }
+
+
+.pagination {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 40px 0 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  column-gap: 4px;
+}
+
+.pagination_theme-dark .pagination__item:hover{
+  background-color: #DFDFDF;
+
+}
+
+@media screen and (max-width: 960px) {
+  .pagination {
+    margin: 46px 0 0;
+  }
+}
+
+.pagination__item {
+  color: var(--black-default);
+  stroke: var(--blue-default);
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: inherit;
+  fill: none;
+  transition: all 0.3s ease;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+
+/*стилизация svg кнопок*/
+.pagination__item circle {
+  fill: var(--white-default);
+}
+
+.pagination__item:hover{
+  stroke: var(--white-hovered);
+  cursor: url(../images/Cursor-Hand.svg),pointer;
+  background-color: rgba(240, 240, 244, 0.8);
+}
+.pagination__item:hover .pagination__link {
+  fill: var(--blue-hovered);
+  stroke: var(--white-hovered);
+  color: var(--blue-hovered);
+}
+
+.pagination__item:hover circle {
+  stroke: var(--blue-default);
+  fill: var(--blue-default);
+}
+
+/*активные элементы*/
+.pagination__item_active {
+  color: var(--blue-default);
+  font-weight: 900;
+}
+
+.pagination__item:active circle {
+  stroke: var(--blue-onclick);
+  fill: var(--blue-onclick);
+}
+
+
+.pagination__item:active  .pagination__link {
+  color: var(--blue-onclick);
+  fill: var(--blue-onclick);
+  stroke: var(--white-hovered);
+}
+
+
+/*НЕактивные элементы*/
+.disabled.pagination__item svg{
+  cursor: unset;
+  stroke: var(--white-default);
+  fill:var(--blue-disabled);
+}
+
+.disabled.pagination__item:hover,
+.disabled.pagination__item:hover a {
+  cursor: unset;
+}
+
+
+@media screen and (max-width: 960px) {
+  .pagination__item:nth-of-type(3){
+    margin-right: 50px;
+    position: relative;
+  }  
+
+  .pagination__item:nth-of-type(3)::after{
+    position: absolute;
+    top: 0;
+    left: 50px;
+    content: '...';
+  }  
+
+  .pagination__item:nth-of-type(n+4):nth-of-type(-n+8) {
+    display: none;
+  }
+}
+
+
+.pagination__link {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+
+  fill: var(--white-default);
+  stroke: var(--blue-default);
+  transition: all .2s ease-in;
+}
+
+.pagination__link svg{
+  color:var(--blue-default);
+}
+
