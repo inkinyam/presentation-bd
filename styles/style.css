@@ -72,6 +72,9 @@ h1, h2, h3, h4, h5, h6, p {
   -moz-text-size-adjust: 100%;
   
   position: relative;
+
+  box-sizing: border-box;
+  padding: 40px 0 80px;
 }
 
 h1 {
@@ -143,7 +146,7 @@ h3 {
 
   width: 40px;
   height: 40px;
-  padding: 0;
+  padding: 4px 0 0;
   margin: 0;
   border-radius: 50%;
   transition: all 0.2s ease-in;
@@ -175,6 +178,12 @@ h3 {
   box-sizing: border-box;
   padding: 0 5%;
   background-color: var(--white-default);
+}
+
+.header__logos {
+  display: flex;
+  flex-direction: row;
+  column-gap: 24px;
 }
 
 .header__logo {
@@ -227,6 +236,7 @@ h3 {
   background-color: var(--black-default);
   color: var(--white-default);
   transition: all 0.2s ease-in;
+  border: none;
 }
 
 .header__button:hover {
@@ -249,6 +259,12 @@ h3 {
   align-items: center;
   box-sizing: border-box;
   padding: 0 5%;
+}
+
+.footer__logos {
+  display: flex;
+  flex-direction: row;
+  column-gap: 24px;
 }
 
 .footer__logo {
@@ -295,12 +311,6 @@ h3 {
   color: var(--blue-onclick);
 }
 
-.page {
-  box-sizing: border-box;
-  padding: 80px 0;
-  min-height: 80vh;
-}
-
 .content-wrapper  {
   max-width: 90%;
   margin: 0 auto;
@@ -313,7 +323,7 @@ h3 {
   display: flex;
   flex-direction: column;
   width: 100%;
-  row-gap: 24px;
+  row-gap: 8px;
  
 }
 
@@ -321,13 +331,19 @@ h3 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border-bottom: 2px solid var(--black-default);
+
+  box-sizing: border-box;
+  padding-bottom: 8px;
 }
 
 .presentation__titlebox {
   display: flex;
   flex-direction: column;
   row-gap: 4px;
+  max-width: 80%;
 }
+
 
 .presentation__title {
   font-family: 'Circe';
@@ -339,6 +355,18 @@ h3 {
   align-items: center;
   text-transform: uppercase;
   margin: 0;
+  word-wrap: break-word;
+  word-break:break-all;
+}
+
+.presentation__title a{
+  text-decoration: none;
+  color: inherit;
+  cursor: url(../images/Cursor-Hand.svg), pointer;
+  transition: .3s ease-in-out;
+}
+.presentation__title a:hover{
+  color: var(--black-hovered);
 }
 
 .presentation__date {
@@ -360,6 +388,10 @@ h3 {
   line-height: 20px;
   color: #5A596E;
   margin-top: 6px;
+
+  max-width: 20%;
+  word-wrap: break-word;
+  word-break:break-all;
 }
 
 .presentation__imageslist {
@@ -455,6 +487,14 @@ h3 {
   .presentation__imageslist {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  .presentation__titlebox {
+    max-width: 100%;
+  }
+
+  .presentation__filename {
+    max-width: 100%;
+  }
   
 }
 
@@ -480,138 +520,72 @@ h3 {
     width: 64px;
     height: 64px;
   }
+
+
 }
 
+.presentation__content {
+  box-sizing: border-box;
+  padding-top: 16px;
+  display: none;
+  flex-direction: column;
+  row-gap: 16px;
+}
 
-.pagination {
-  list-style: none;
+.accordion__item-active .presentation__content {
+  display: flex;
+}
+
+.navigation {
   display: flex;
   flex-direction: row;
-  margin: 40px 0 0;
+  justify-content: space-between;
+
+  max-width:100%;
+  width: 100%;
+  margin: 0 auto 20px;
+
+}
+
+.navigation__list {
+  display: flex;
+  flex-direction: row;
+  column-gap: 24px;
+  margin: 0;
   padding: 0;
-  justify-content: center;
-  align-items: center;
-  column-gap: 4px;
+  list-style: none;
 }
 
-.pagination_theme-dark .pagination__item:hover{
-  background-color: #DFDFDF;
-
-}
-
-
-.pagination__item {
-  color: var(--black-default);
-  stroke: var(--blue-default);
-  font-family: 'Lora';
+.navigation__item a {
+  font-family: 'Circe';
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 28px;
-  color: inherit;
-  fill: none;
-  transition: all 0.3s ease;
-  min-width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  text-align: center;
-}
-
-
-/*стилизация svg кнопок*/
-.pagination__item circle {
-  fill: var(--white-default);
-}
-
-.pagination__item:hover{
-  stroke: var(--white-hovered);
-  cursor: url(../images/Cursor-Hand.svg), pointer;
-  background-color: rgba(240, 240, 244, 0.8);
-}
-.pagination__item:hover .pagination__link {
-  fill: var(--blue-hovered);
-  stroke: var(--white-hovered);
-  color: var(--blue-hovered);
-}
-
-.pagination__item:hover circle {
-  stroke: var(--blue-default);
-  fill: var(--blue-default);
-}
-
-.pagination__link:hover {
-  cursor: url(../images/Cursor-Hand.svg), pointer;
-}
-
-/*активные элементы*/
-.pagination__item_active {
-  color: var(--blue-default);
-  font-weight: 900;
-}
-
-.pagination__item:active circle {
-  stroke: var(--blue-onclick);
-  fill: var(--blue-onclick);
-}
-
-
-.pagination__item:active  .pagination__link {
-  color: var(--blue-onclick);
-  fill: var(--blue-onclick);
-  stroke: var(--white-hovered);
-}
-
-
-/*НЕактивные элементы*/
-.disabled.pagination__item svg{
-  cursor: unset;
-  stroke: var(--white-default);
-  fill:var(--blue-disabled);
-}
-
-.disabled.pagination__item:hover,
-.disabled.pagination__item:hover a {
-  cursor: unset;
-}
-
-
-.pagination__link {
+  font-size: 20px;
+  line-height: 24px;
   text-decoration: none;
-  color: inherit;
-  width: 100%;
-  height: 100%;
-
-  fill: var(--white-default);
-  stroke: var(--blue-default);
-  transition: all .2s ease-in;
+  color: var(--black-default);
 }
 
-.pagination__link svg{
-  color:var(--blue-default);
+.navigation__item_active a{
+  color: var(--blue-default);
 }
 
+.navigation__item a:hover {
+  color: var(--blue-hovered);
+  cursor: url(../images/Cursor-Hand.svg), pointer;
+}
 
-@media screen and (max-width: 960px) {
-  .pagination {
-    margin: 46px 0 0;
+@media screen and (max-width: 550px) {
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 24px;
+  
   }
-}
-
-
-@media screen and (max-width: 960px) {
-  .pagination__item:nth-of-type(3){
-    margin-right: 50px;
-    position: relative;
-  }  
-
-  .pagination__item:nth-of-type(3)::after{
-    position: absolute;
-    top: 0;
-    left: 50px;
-    content: '...';
-  }  
-
-  .pagination__item:nth-of-type(n+4):nth-of-type(-n+8) {
-    display: none;
+  
+  .navigation__list {
+    flex-wrap: wrap;
+    row-gap: 24px;
   }
 }

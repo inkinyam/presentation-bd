@@ -66,3 +66,27 @@ Fancybox.bind('[data-fancybox]', {
 
 Fancybox.Plugins.Thumbs.defaults.autoStart = true;
 
+//инициализация аккордеонов
+function initAccordion (selector) {
+  let accordion = document.querySelector(selector);
+
+  if (!accordion) {
+        console.log('ERROR: Указан некорректный идентификатор блока для функции initAccordion');
+    return;
+  } else {
+    let accordionTriggers = Array.from(accordion.querySelectorAll('.accordion__item-trigger'));
+    accordionTriggers.forEach(item => {
+      item.addEventListener('click', (e) => {
+        let parentElement = e.target.parentElement;
+        if (parentElement.classList.contains('accordion__item-active')) {
+          parentElement.classList.remove('accordion__item-active')
+        } else {     
+          parentElement.classList.add('accordion__item-active')  
+        }
+      })
+    })
+  }
+
+}
+
+initAccordion('.content-wrapper');
