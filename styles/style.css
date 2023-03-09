@@ -5,6 +5,7 @@
 
 
 :root {
+  scroll-behavior: smooth;
   /*основные цвета*/
   /*белый*/ 
   --white-default: #F6F6F7;
@@ -46,10 +47,6 @@
 
 }
 
-/*задаем по умолчанию вид скролла*/
-html {
-  scroll-behavior: smooth;
-}
 /* обнуляем все отступы "из коробки" */
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
@@ -122,7 +119,7 @@ h3 {
 
 }
 
-
+/* -------------------------------------------- КНОПКА ВВЕРХ --------------------------------------------*/
 .up {
   visibility: hidden;
   position: fixed;
@@ -171,6 +168,7 @@ h3 {
  transform: scale(1);
 }
 
+/* -------------------------------------------- ХЕДЕР --------------------------------------------*/
 .header {
   width: 100%;
   display: flex;
@@ -250,6 +248,8 @@ h3 {
   color: var(--white-onclick);
 }
 
+
+/* -------------------------------------------- ФУТЕР --------------------------------------------*/
 .footer {
   background-color: var(--black-default);
   width: 100%;
@@ -311,6 +311,7 @@ h3 {
   color: var(--blue-onclick);
 }
 
+/* -------------------------------------------- ВРАППЕР --------------------------------------------*/
 .content-wrapper  {
   max-width: 90%;
   margin: 0 auto;
@@ -319,6 +320,7 @@ h3 {
   row-gap: 120px;
 }
 
+/* -------------------------------------------- ПРЕЗЕНТАЦИЯ --------------------------------------------*/
 .presentation {
   display: flex;
   flex-direction: column;
@@ -332,10 +334,15 @@ h3 {
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 2px solid var(--black-default);
-
   box-sizing: border-box;
   padding-bottom: 8px;
+  transition: all .3s ease-in-out;
 }
+
+.presentation__header:hover {
+  cursor: url(../images/Cursor-Hand.svg), pointer;
+  border-bottom: 2px solid var(--blue-default);
+} 
 
 .presentation__titlebox {
   display: flex;
@@ -343,7 +350,6 @@ h3 {
   row-gap: 4px;
   max-width: 80%;
 }
-
 
 .presentation__title {
   font-family: 'Circe';
@@ -359,16 +365,6 @@ h3 {
   word-break:break-all;
 }
 
-.presentation__title a{
-  text-decoration: none;
-  color: inherit;
-  cursor: url(../images/Cursor-Hand.svg), pointer;
-  transition: .3s ease-in-out;
-}
-.presentation__title a:hover{
-  color: var(--black-hovered);
-}
-
 .presentation__date {
   font-family: 'Lora';
   font-style: italic;
@@ -377,7 +373,29 @@ h3 {
   line-height: 24px;
   color: #5A596E;
   margin: 0;
-  
+}
+
+.presentation__infobox {
+  display: flex;
+  flex-direction: column;
+  max-width: 20%;
+  justify-content: space-between;
+  align-items: flex-end
+}
+
+.presentation__link {
+  text-decoration: none;
+  color: var(--blue-default);
+  cursor: url(../images/Cursor-Hand.svg), pointer;
+  transition: all .3s ease-in-out;
+}
+
+.presentation__link:hover {
+  color: var(--blue-hovered);
+}
+
+.presentation__link:active {
+  color: var(--blue-onclick);
 }
 
 .presentation__filename {
@@ -388,8 +406,6 @@ h3 {
   line-height: 20px;
   color: #5A596E;
   margin-top: 6px;
-
-  max-width: 20%;
   word-wrap: break-word;
   word-break:break-all;
 }
@@ -455,6 +471,80 @@ h3 {
   line-height: 24px;
   color: var(--grey-tags-onclick);
 }
+
+.presentation__back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 153px;
+  height: 44px;
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 44px;
+  text-decoration: none;
+  background-color: var(--black-default);
+  color: var(--white-default);
+  transition: all 0.2s ease-in;
+  border: none;
+  margin: 24px auto 0;
+  max-width: 90%;
+}
+
+.presentation__content {
+  box-sizing: border-box;
+  padding-top: 16px;
+  display: none;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.presentation_opened .presentation__content {
+  display: flex;
+}
+
+
+/* -------------------------------------------- НАВИГАЦИЯ --------------------------------------------*/
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  max-width:100%;
+  width: 100%;
+  margin: 0 auto 20px;
+
+}
+
+.navigation__list {
+  display: flex;
+  flex-direction: row;
+  column-gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation__item a {
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  text-decoration: none;
+  color: var(--black-default);
+}
+
+.navigation__item_active a{
+  color: var(--blue-default);
+}
+
+.navigation__item a:hover {
+  color: var(--blue-hovered);
+  cursor: url(../images/Cursor-Hand.svg), pointer;
+}
+
 
 
 @media screen and (max-width: 1050px) {
@@ -522,57 +612,6 @@ h3 {
   }
 
 
-}
-
-.presentation__content {
-  box-sizing: border-box;
-  padding-top: 16px;
-  display: none;
-  flex-direction: column;
-  row-gap: 16px;
-}
-
-.accordion__item-active .presentation__content {
-  display: flex;
-}
-
-.navigation {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  max-width:100%;
-  width: 100%;
-  margin: 0 auto 20px;
-
-}
-
-.navigation__list {
-  display: flex;
-  flex-direction: row;
-  column-gap: 24px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.navigation__item a {
-  font-family: 'Circe';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  text-decoration: none;
-  color: var(--black-default);
-}
-
-.navigation__item_active a{
-  color: var(--blue-default);
-}
-
-.navigation__item a:hover {
-  color: var(--blue-hovered);
-  cursor: url(../images/Cursor-Hand.svg), pointer;
 }
 
 @media screen and (max-width: 550px) {

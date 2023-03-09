@@ -74,19 +74,19 @@ function initAccordion (selector) {
         console.log('ERROR: Указан некорректный идентификатор блока для функции initAccordion');
     return;
   } else {
-    let accordionTriggers = Array.from(accordion.querySelectorAll('.accordion__item-trigger'));
+    let accordionTriggers = Array.from(accordion.querySelectorAll('.presentation__header'));
     accordionTriggers.forEach(item => {
       item.addEventListener('click', (e) => {
-        let parentElement = e.target.parentElement;
-        if (parentElement.classList.contains('accordion__item-active')) {
-          parentElement.classList.remove('accordion__item-active')
+        let parentElement = e.target.closest('.presentation');
+        if (parentElement.classList.contains('presentation_opened')) {
+          parentElement.classList.remove('presentation_opened')
         } else {     
-          parentElement.classList.add('accordion__item-active')  
+          parentElement.classList.add('presentation_opened')  
         }
       })
     })
   }
-
 }
 
-initAccordion('.content-wrapper');
+
+window.initAccordion = initAccordion;
