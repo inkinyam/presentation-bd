@@ -317,7 +317,7 @@ h3 {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  row-gap: 120px;
+  row-gap: 80px;
 }
 
 /* -------------------------------------------- ПРЕЗЕНТАЦИЯ --------------------------------------------*/
@@ -366,11 +366,7 @@ h3 {
 }
 
 .presentation__date {
-  font-family: 'Lora';
-  font-style: italic;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 24px;
+  font-family: 'Circe';
   color: #5A596E;
   margin: 0;
 }
@@ -379,11 +375,12 @@ h3 {
   display: flex;
   flex-direction: column;
   max-width: 20%;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-end
 }
 
 .presentation__link {
+  font-family: 'Circe';
   text-decoration: none;
   color: var(--blue-default);
   cursor: url(../images/Cursor-Hand.svg), pointer;
@@ -401,9 +398,6 @@ h3 {
 .presentation__filename {
   font-family: 'Circe';
   font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
   color: #5A596E;
   margin-top: 6px;
   word-wrap: break-word;
@@ -553,10 +547,6 @@ h3 {
     line-height: 42px;
   }
 
-  .content-wrapper {
-    row-gap: 80px;
-  }
-
   .header__wrapper {
     flex-direction: column;
     row-gap: 40px;
@@ -585,7 +575,12 @@ h3 {
   .presentation__filename {
     max-width: 100%;
   }
-  
+
+  .presentation__infobox {
+    max-width: 100%;
+    align-items: flex-start;
+    row-gap: 8px;
+  }
 }
 
 @media screen and (max-width: 550px) {
@@ -601,7 +596,6 @@ h3 {
     width: 100%;
   }
 
-
   .content-wrapper {
     row-gap: 60px;
   }
@@ -610,8 +604,6 @@ h3 {
     width: 64px;
     height: 64px;
   }
-
-
 }
 
 @media screen and (max-width: 550px) {
@@ -620,7 +612,6 @@ h3 {
     flex-direction: column;
     justify-content: flex-start;
     row-gap: 24px;
-  
   }
   
   .navigation__list {
